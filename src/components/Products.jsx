@@ -1,14 +1,18 @@
+import { Flex, Grid } from "@chakra-ui/layout";
 import React from "react";
+import Product from "./Product";
 
-const Products = () => {
-  // TODO: Remove below const and instead import them from chakra
-  const Flex = () => <div />;
-  const Grid = () => <div />;
+const Products = ({data}) => {
+ 
 
   return (
     <Flex>
       {/*  AddProduct */}
-      <Grid>{/* List of Products */}</Grid>
+      <Grid templateColumns='repeat(3, 1fr)' gap={6}>{/* List of Products */}
+      {data.map((e)=>{
+        return <> <Product item={e}/> </>
+      })}
+      </Grid>
       {/* Pagination */}
     </Flex>
   );
